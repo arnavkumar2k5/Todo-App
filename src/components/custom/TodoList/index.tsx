@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store/store";
 import { editTodo, removeTodo, toggleTodoCompletion } from "../../../store/TodoSlice";
