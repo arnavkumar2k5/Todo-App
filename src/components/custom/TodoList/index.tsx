@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store/store";
 import { editTodo, removeTodo, toggleTodoCompletion } from "../../../store/TodoSlice";
+import TodoButton from "../../base/TodoButton";
 
 interface TodoItem {
   id: string;
@@ -78,19 +79,19 @@ function TodoList() {
               </button>
 
               {editingTodoId === todo.id ? (
-                <button
+                <TodoButton
                   onClick={() => handleSaveClick(todo.id)}
                   className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-md"
                 >
                   Save
-                </button>
+                </TodoButton>
               ) : (
-                <button
+                <TodoButton
                   onClick={() => handleEditClick(todo)}
                   className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded text-md"
                 >
                   Edit
-                </button>
+                </TodoButton>
               )}
             </div>
           </li>
