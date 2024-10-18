@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store/store";
 import { editTodo, removeTodo, toggleTodoCompletion } from "../../../store/TodoSlice";
 import TodoButton from "../../base/TodoButton";
+import TodoInput from "../../base/TodoInput";
 
 interface TodoItem {
   id: string;
@@ -46,11 +47,8 @@ function TodoList() {
               className="mr-2"
             />
             {editingTodoId === todo.id ? (
-              <input
-                type="text"
-                value={editText}
-                onChange={(e) => setEditText(e.target.value)}
-                className="text-black px-2 py-1 rounded"
+              <TodoInput
+              input={editText} setInput={setEditText}
               />
             ) : (
               <div className={`text-white ${todo.completed ? "line-through" : ""}`}>
