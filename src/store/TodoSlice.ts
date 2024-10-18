@@ -3,6 +3,7 @@ import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 interface Todo {
   id: string;
   text: string;
+  completed: boolean;
 }
 
 interface TodoState {
@@ -32,13 +33,14 @@ const initialState: TodoState = {
 };
 
 export const TodoSlice = createSlice({
-  name: 'TodoSlice',
+  name: "TodoSlice",
   initialState,
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
       const todo: Todo = {
         id: nanoid(),
         text: action.payload,
+        completed: false,
       };
       state.todos.push(todo);
       saveToLocalStorage(state.todos);
@@ -46,20 +48,29 @@ export const TodoSlice = createSlice({
 
     removeTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-      saveToLocalStorage(state.todos); 
+      saveToLocalStorage(state.todos);
     },
 
     editTodo: (state, action: PayloadAction<{ id: string; text: string }>) => {
       const { id, text } = action.payload;
       const todo = state.todos.find((todo) => todo.id === id);
       if (todo) {
-        todo.text = text;  
-        saveToLocalStorage(state.todos); 
+        todo.text = text;
+        saveToLocalStorage(state.todos);
+      }
+    },
+
+    toggleTodoCompletion: (state, action: PayloadAction<string>) => {
+      const todo = state.todos.find((todo) => todo.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+        saveToLocalStorage(state.todos);
       }
     },
   },
 });
 
-export const { addTodo, removeTodo, editTodo } = TodoSlice.actions;
+export const { addTodo, removeTodo, editTodo, toggleTodoCompletion } =
+  TodoSlice.actions;
 
 export default TodoSlice.reducer;
