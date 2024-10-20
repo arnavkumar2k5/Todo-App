@@ -1,10 +1,10 @@
 import React from 'react';
-import Homeview from '../../view/Homeview';
+import HomeContainer from '../../container/HomeContainer';
 
 const HomePage: React.FC = () => {
   return (
     <>
-      <Homeview/>
+    <HomeContainer/>
     </>
   );
 }
