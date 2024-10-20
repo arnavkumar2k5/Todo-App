@@ -1,6 +1,6 @@
-import React from 'react';
-import FormInput from '../../components/custom/FormInput';
-import FormList from '../../components/custom/FormList';
+import React from "react";
+import FormInput from "../../components/custom/FormInput";
+import FormList from "../../components/custom/FormList";
 
 interface HomeviewProps {
   input: string;
@@ -10,7 +10,11 @@ interface HomeviewProps {
   editingTodoId: string | null;
   editText: string;
   setEditText: (text: string) => void;
-  handleEditClick: (todo: { id: string; text: string; completed: boolean }) => void;
+  handleEditClick: (todo: {
+    id: string;
+    text: string;
+    completed: boolean;
+  }) => void;
   handleSaveClick: (id: string) => void;
   handleCheckboxChange: (id: string) => void;
   handleDeleteClick: (id: string) => void;
@@ -31,7 +35,11 @@ const Homeview: React.FC<HomeviewProps> = ({
 }) => {
   return (
     <div>
-      <FormInput input={input} setInput={setInput} handleSubmit={handleSubmit} />
+      <FormInput
+        input={input}
+        setInput={setInput}
+        handleSubmit={handleSubmit}
+      />
       <FormList
         todos={todos}
         editingTodoId={editingTodoId}

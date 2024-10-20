@@ -10,7 +10,7 @@ interface FormInputProps {
 
 const FormInput: React.FC<FormInputProps> = ({ input, setInput, handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className="flex gap-2 text-xs md:text-lg">
       <TodoInput input={input} setInput={setInput} />
       <TodoButton type="submit" className="self-end">
         Add Todo

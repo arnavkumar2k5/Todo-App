@@ -30,12 +30,13 @@ const FormList: React.FC<TodoListProps> = ({
   handleDeleteClick,
 }) => {
   return (
-    <ul className="list-none">
+    <ul className="list-none text-xs md:text-sm">
       {todos.map((todo) => (
         <li
           className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
           key={todo.id}
         >
+          <div className='flex'>
           <input
             type="checkbox"
             checked={todo.completed}
@@ -49,7 +50,8 @@ const FormList: React.FC<TodoListProps> = ({
               {todo.text}
             </div>
           )}
-          <div className="flex gap-5 ml-5">
+          </div>
+          <div className="flex gap-2 md:gap-5 ml-5">
             {editingTodoId === todo.id ? (
               <TodoButton
                 onClick={() => handleSaveClick(todo.id)}
@@ -60,14 +62,14 @@ const FormList: React.FC<TodoListProps> = ({
             ) : (
               <TodoButton
                 onClick={() => handleEditClick(todo)}
-                className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded text-md"
+                className="text-white bg-blue-500 border-0 py-1 px-3 md:px-4 focus:outline-none hover:bg-blue-600 rounded text-md"
               >
                 Edit
               </TodoButton>
             )}
             <TodoButton
               onClick={() => handleDeleteClick(todo.id)}
-              className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
+              className="text-white bg-red-500 border-0 py-1 px-2 md:px-4 focus:outline-none hover:bg-red-600 rounded text-md"
             >
               Delete
             </TodoButton>
