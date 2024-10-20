@@ -30,10 +30,10 @@ const FormList: React.FC<TodoListProps> = ({
   handleDeleteClick,
 }) => {
   return (
-    <ul className="list-none text-xs md:text-sm">
+    <ul className="list-none text-xs">
       {todos.map((todo) => (
         <li
-          className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
+          className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded overflow-x-auto"
           key={todo.id}
         >
           <div className='flex'>
