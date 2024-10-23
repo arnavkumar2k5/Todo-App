@@ -1,5 +1,5 @@
 import React from "react";
-import FormInput from "../../components/custom/FormInput";
+import Form from "../../components/custom/Form";
 import FormList from "../../components/custom/FormList";
 
 interface HomeviewProps {
@@ -35,7 +35,7 @@ const Homeview: React.FC<HomeviewProps> = ({
 }) => {
   return (
     <div>
-      <FormInput
+      <Form
         input={input}
         setInput={setInput}
         handleSubmit={handleSubmit}

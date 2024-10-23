@@ -5,4 +5,5 @@
 
 body{
   overflow-x: hidden;
+  background: linear-gradient(to right, #E3F2FD, #FCE4EC);
 }

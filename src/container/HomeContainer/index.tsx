@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormInput from '../../components/custom/FormInput';
+import FormInput from '../../components/custom/Form';
 import FormList from '../../components/custom/FormList';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo, editTodo, toggleTodoCompletion, removeTodo } from '../../store/TodoSlice';
@@ -46,10 +46,12 @@ const HomeContainer: React.FC = () => {
     dispatch(removeTodo(id)); 
   };
 
+
   return (
-    <div className='m-3 md:w-[80%] md:m-auto md:mt-10'>
-      <div className='text-3xl mb-5 md:text-7xl font-semibold text-center md:mb-10 border-2 border-gray-200'><i>TODO - APP</i></div>
-    <div className='p-2 border-2 border-gray-200'>
+    <div className='m-3 md:w-[80%] md:m-auto md:mt-10 shadow-2xl bg-gray-700 p-5 rounded-xl mt-10 pb-10'>
+      <div className='text-3xl mb-5 md:text-7xl font-semibold text-center md:mb-10 '><i>TODO - APP</i></div>
+      <div className='border-b border-gray-300 mb-6 w-3/4 m-auto'></div>
+    <div>
       <FormInput input={input} setInput={setInput} handleSubmit={handleSubmit} />
       <FormList
         todos={todos}

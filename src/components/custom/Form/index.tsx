@@ -8,10 +8,10 @@ interface FormInputProps {
   handleSubmit: (e: React.FormEvent) => void;
 }
 
-const FormInput: React.FC<FormInputProps> = ({ input, setInput, handleSubmit }) => {
+const Form: React.FC<FormInputProps> = ({ input, setInput, handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 text-xs md:text-lg">
-      <TodoInput input={input} setInput={setInput} />
+      <TodoInput input={input} setInput={setInput} type='text' placeholder='Add Todo'/>
       <TodoButton type="submit" className="self-end">
         Add Todo
       </TodoButton>
@@ -19,4 +19,4 @@ const FormInput: React.FC<FormInputProps> = ({ input, setInput, handleSubmit }) 
   );
 };
 
-export default FormInput;
+export default Form;
