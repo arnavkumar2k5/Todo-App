@@ -7,7 +7,7 @@ import TodoButton from "../base/TodoButton";
 import Logout from "../../container/LogoutContainer";
 
 function Header() {
-  const authStatus = useSelector((state: RootState) => state.auth.status)
+  const authStatus = useSelector((state: RootState) => state.auth.user)
   const navigate = useNavigate(); 
   const [menuOpen, setMenuOpen] = useState(false);
 
