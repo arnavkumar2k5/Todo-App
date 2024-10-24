@@ -15,7 +15,7 @@ function LandingContainer() {
                     </TodoButton>
                         </Link>
                         <Link to='/signIn'>
-                    <TodoButton className="bg-white text-black hover:bg-slate-200">Already have an account? Sign In</TodoButton>
+                    <div className="bg-white text-black hover:bg-slate-200 p-2 rounded-xl">Already have an account? Sign In</div>
                         </Link>
                 </div>
             </div>

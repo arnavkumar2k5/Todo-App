@@ -53,7 +53,7 @@ function Header() {
                       navigate(item.slug);
                       setMenuOpen(false);
                     }}
-                    className="inline-bock px-6 py-2 duration-200 hover:bg-[#DCC7AA] rounded-full"
+                    className="inline-bock px-6 py-2 duration-200 bg-gray-800 hover:bg-[#DCC7AA] rounded-full"
                   >
                     {item.name}
                   </TodoButton>
