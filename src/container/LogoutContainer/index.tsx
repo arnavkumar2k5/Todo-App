@@ -28,7 +28,7 @@ const Logout: React.FC = () => {
         }
     };    
 
-    return <TodoButton onClick={handleLogout}>Logout</TodoButton>;
+    return <TodoButton onClick={handleLogout} className='bg-gray-800 hover:bg-[#DCC7AA]'>Logout</TodoButton>;
 };
 
 export default Logout;

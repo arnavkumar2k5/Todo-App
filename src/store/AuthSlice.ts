@@ -4,12 +4,14 @@ interface AuthState {
     user: any | null;
     loading: boolean;
     error: string | null;
+    status: boolean;
 }
 
 const initialState: AuthState = {
     user: null,
     loading: false,
     error: null,
+    status: false,
 }
 
 export const AuthSlice = createSlice({
@@ -17,6 +19,7 @@ export const AuthSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action: PayloadAction<any>) => {
+            state.status = true;
             state.user = action.payload;
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
@@ -26,6 +29,7 @@ export const AuthSlice = createSlice({
             state.error = action.payload;
         },
         setClear: (state) => {
+            state.status = false;
             state.user = null;
         },
     },

@@ -48,7 +48,7 @@ const HomeContainer: React.FC = () => {
 
 
   return (
-    <div className='m-3 md:w-[80%] md:m-auto md:mt-10 shadow-2xl bg-gray-700 p-5 rounded-xl mt-10 pb-10'>
+    <div className='m-3 md:w-[80%] md:m-auto md:mt-10 shadow-2xl bg-gray-700 p-5 rounded-xl mb-80 md:mb-72 mt-10 pb-10'>
       <div className='text-3xl mb-5 md:text-7xl font-semibold text-center md:mb-10 '><i>TODO - APP</i></div>
       <div className='border-b border-gray-300 mb-6 w-3/4 m-auto'></div>
     <div>
