@@ -33,7 +33,6 @@ export const AuthSlice = createSlice({
         },
         setClear: (state) => {
             state.user = null;
-            document.cookie = "accessToken=; path=/; max-age=0; Secure";
             Cookies.remove("accessToken", { path: "/" });
         },
     },
