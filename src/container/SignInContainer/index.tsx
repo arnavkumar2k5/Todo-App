@@ -24,7 +24,8 @@ const SignInContainer: React.FC = () => {
         dispatch(setLoading(true));
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            dispatch(setUser(userCredential.user));
+            const idToken = await userCredential.user.getIdToken();
+            dispatch(setUser({ ...userCredential.user, accessToken: idToken }));
             navigate("/home");
         } catch (error: any) {
             dispatch(setError(error.message));

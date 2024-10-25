@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUserWithEmailAndPassword} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, firestore } from '../../utils/firebase';
 import { setError, setLoading, setUser } from '../../store/AuthSlice';
 import { AppDispatch, RootState } from '../../store/store';
@@ -26,11 +26,12 @@ const SignUpContainer: React.FC = () => {
         dispatch(setLoading(true));
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            dispatch(setUser(userCredential.user));
-            await setDoc(doc(firestore, 'users', user.uid), {
+            const idToken = await userCredential.user.getIdToken();
+            dispatch(setUser({ ...userCredential.user, accessToken: idToken }));
+            await setDoc(doc(firestore, 'users', userCredential.user.uid), {
                 name,
                 email,
-              });              
+            });
         } catch (error: any) {
             dispatch(setError(error.message));
         } finally {

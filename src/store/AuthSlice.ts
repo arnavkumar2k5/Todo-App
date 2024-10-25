@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 interface AuthState {
     user: any | null;
@@ -10,7 +11,7 @@ const initialState: AuthState = {
     user: null,
     loading: false,
     error: null,
-}
+};
 
 export const AuthSlice = createSlice({
     name: "auth",
@@ -18,6 +19,11 @@ export const AuthSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<any>) => {
             state.user = action.payload;
+            Cookies.set("accessToken", action.payload.accessToken, {
+                expires: 1 / 24,
+                secure: true,
+                path: "/",
+            });
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
@@ -27,10 +33,11 @@ export const AuthSlice = createSlice({
         },
         setClear: (state) => {
             state.user = null;
+            document.cookie = "accessToken=; path=/; max-age=0; Secure";
+            Cookies.remove("accessToken", { path: "/" });
         },
     },
 });
 
-export const {setUser, setLoading, setError, setClear} = AuthSlice.actions;
-
+export const { setUser, setLoading, setError, setClear } = AuthSlice.actions;
 export default AuthSlice.reducer;

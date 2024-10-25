@@ -26,7 +26,7 @@ const Logout: React.FC = () => {
         } catch (error) {
             console.error('Error logging out:', error);
         }
-    };    
+    };
 
     return <TodoButton onClick={handleLogout} className='bg-gray-800 hover:bg-[#DCC7AA]'>Logout</TodoButton>;
 };
