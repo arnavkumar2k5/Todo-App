@@ -21,7 +21,7 @@ const SignInContainer: React.FC = () => {
     if (isAuthenticated()) {
       navigate("/home");
     } else {
-      console.log("Failed to login. Check credentials.");
+      console.log("Failed to login. Please try again.");
     }
   };
 
