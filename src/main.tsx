@@ -10,7 +10,7 @@ import SignInPage from './pages/SignInPage/index.tsx'
 import SignUpPage from './pages/SignUpContainer/index.tsx'
 import './App.css'
 import LandingPage from './pages/LandingPage/index.tsx'
-import AuthProvider from './contexts/AuthContext.tsx/index.tsx'
+import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
   {
