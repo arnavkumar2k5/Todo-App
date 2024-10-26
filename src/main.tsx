@@ -10,6 +10,7 @@ import SignInPage from './pages/SignInPage/index.tsx'
 import SignUpPage from './pages/SignUpContainer/index.tsx'
 import './App.css'
 import LandingPage from './pages/LandingPage/index.tsx'
+import AuthProvider from './contexts/AuthContext.tsx/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
+      <AuthProvider>
     <RouterProvider router={router}/>
+      </AuthProvider>
     </Provider>
   </StrictMode>,
 )
