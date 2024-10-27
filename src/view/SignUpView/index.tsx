@@ -23,7 +23,7 @@ const SignUpView: React.FC<SignInViewProps> = ({
   handleClick,
 }) => {
   return (
-    <div className="flex flex-col w-1/3 justify-center items-center m-auto bg-white shadow-2xl rounded-xl mt-20 p-10 gap-2">
+    <div className="flex flex-col mx-2 md:mx-auto md:w-1/3 justify-center items-center text-center m-auto bg-white shadow-2xl rounded-xl mt-20 p-10 gap-2">
       <div className="text-2xl font-bold">Todo</div>
       <div className="text-3xl font-semibold">Sign up to create account</div>
       <div>Already have an account?
