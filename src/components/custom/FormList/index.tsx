@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoButton from '../../base/TodoButton';
 import TodoInput from '../../base/TodoInput';
+import TodoCheckbox from '../../base/TodoCheckbox';
 
 interface TodoItem {
   id: string;
@@ -37,12 +38,7 @@ const FormList: React.FC<TodoListProps> = ({
           key={todo.id}
         >
           <div className='flex'>
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={() => handleCheckboxChange(todo.id)}
-            className="mr-2"
-          />
+          <TodoCheckbox checked={todo.completed} onChange={() => handleCheckboxChange(todo.id)}/>
           {editingTodoId === todo.id ? (
             <TodoInput input={editText} setInput={setEditText} />
           ) : (

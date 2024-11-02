@@ -22,8 +22,8 @@ const initialState: TodoState = {
 
 const addTodoToFirestore = async (text: string, completed: boolean) => {
   try {
-    const docRef = await addDoc(collection(db, "todos"), { text, completed });
-    return { id: docRef.id, text, completed };
+    const todoRef = await addDoc(collection(db, "todos"), { text, completed });
+    return { id: todoRef.id, text, completed };
   } catch (error) {
     console.error("Error adding todo to Firestore:", error);
     return null;
