@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import FormInput from '../../components/custom/Form';
 import FormList from '../../components/custom/FormList';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, editTodo, toggleTodoCompletion, removeTodo } from '../../store/TodoSlice';
-import { RootState } from '../../store/store'; 
+import { editTodo, toggleTodoCompletion, removeTodo, addTodo } from '../../store/TodoSlice';
+import { AppDispatch, RootState } from '../../store/store'; 
 
 interface TodoItem {
   id: string;
@@ -18,7 +18,7 @@ const HomeContainer: React.FC = () => {
 
   const todos = useSelector((state: RootState) => state.todos.todos);
   
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

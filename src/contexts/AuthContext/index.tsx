@@ -1,5 +1,5 @@
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -87,7 +87,7 @@ const AuthProvider = ({children} : AuthProviderProps) => {
                 setUser({email, uid})
             } catch (error) {
                 console.log("failed to login", error)
-                logOut
+                logOut();
             }
         }
     }, [])
