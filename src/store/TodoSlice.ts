@@ -77,7 +77,7 @@ export const loadTodosFromFirestore = createAsyncThunk(
 );
 
 export const TodoSlice = createSlice({
-  name: "TodoSlice",
+  name: "todos",
   initialState,
   reducers: {
     removeTodo: (state, action: PayloadAction<string>) => {
